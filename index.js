@@ -6,6 +6,10 @@ const port=8000;
 //middleware for route handling
 app.use('/' , require('./routes'));  //this will go to the index of routes
 
+//setting the view engine and the views folder path
+app.set('view engine' , 'ejs');
+app.set('views' , './views');
+
 app.listen(port , function(err){
     if(err){
         //interpolation used
