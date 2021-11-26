@@ -4,7 +4,7 @@ const app=express();   //firing up the server
 const port=8000;
 
 //middleware for route handling
-app.use('/' , require('./routes/index.js'));
+app.use('/' , require('./routes'));  //this will go to the index of routes
 
 app.listen(port , function(err){
     if(err){
