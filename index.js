@@ -3,6 +3,9 @@ const express=require('express');
 const app=express();   //firing up the server
 const port=8000;
 
+//middleware for route handling
+app.use('/' , require('./routes/index.js'));
+
 app.listen(port , function(err){
     if(err){
         //interpolation used
