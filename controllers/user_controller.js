@@ -1,4 +1,7 @@
 //this is the controller for users
 module.exports.profile=function(req , res){
-    return res.end('<h1>User Profile</h1>');
+    //return res.end('<h1>User Profile</h1>');
+    return res.render('user_profile.ejs' , {
+        title:"USERS"
+    });
 }
