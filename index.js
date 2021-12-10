@@ -1,6 +1,6 @@
 //this is the entry point of the project 
 const express=require('express');
-//for handling cookies 
+//for handling cookies ie ; reading and writing
 const cookieParser=require('cookie-parser');
 const app=express();   //firing up the server
 const port=8000;
@@ -11,6 +11,7 @@ const db=require("./config/mongoose");
 app.use(express.urlencoded());
 //for cookie parsing
 app.use(cookieParser());
+//used as middlewaree
 
 app.use(express.static('./assets'));
 
