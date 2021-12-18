@@ -12,6 +12,10 @@ module.exports.profile=function(req , res){
 //sign in and sign up pages , rendering sign in and sign up pages respectively
 
 module.exports.signIn=function(req , res){
+    //restricting access to sign in page when user is signed in(authenticated)
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }    
     return res.render('user_sign_in.ejs', {
         title:"Codeial | SIGN IN"
     });
@@ -20,6 +24,12 @@ module.exports.signIn=function(req , res){
 //note that render will directly look into views folder as defined in index.js
 
 module.exports.signUp=function(req , res){
+
+    //not accessible if you are already signed in(authenticated)
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_up.ejs' , {
         title:"Codeial | SIGN UP"
     });
@@ -58,5 +68,13 @@ module.exports.create=function(req , res){
 
 //action with data you get during sign in
 module.exports.createSession=function(req , res){
+    //this is now handled by passport.js
+    return res.redirect('/');
+    //after sign in you are taken to the home page
+};
 
+//action to sign out
+module.exports.destroySession=function(req , res){
+    req.logout();  //provided by passport
+    return res.redirect('/');
 };

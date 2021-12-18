@@ -7,6 +7,16 @@ const port=8000;
 const expressLayouts=require('express-ejs-layouts');//will import this functionality
 const db=require("./config/mongoose");
 
+//importing required functionality for authentication using passport.js
+const session=require('express-session');
+const passport=require('passport');
+const passportLocal=require('./config/passport-local-strategy');
+
+//library to store the session data permanently so that it does not get lost
+//on refreshing
+const MongoStore=require('connect-mongo');//session is our express session 
+
+
 //for post requests
 app.use(express.urlencoded());
 //for cookie parsing
@@ -20,12 +30,44 @@ app.use(expressLayouts);
 app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true);
 
-//middleware for route handling
-app.use('/' , require('./routes'));  //this will go to the index of routes
+
 
 //setting the view engine and the views folder path
 app.set('view engine' , 'ejs');
 app.set('views' , './views');
+
+//using a midddleware to handle sessions
+//step: setting up the session cookie and it's encryption
+app.use(session({
+    name:'codeial',
+    secret:'blahsomething',
+    saveUninitialized:false,
+    resave:false,
+    cookie:{
+        maxAge:(1000*60*100)
+    },
+    //to set up monog store to store session data in db
+    store:MongoStore.create(
+        {
+            mongoUrl:'mongodb://localhost/codeial_development',
+            autoRemove:'false'    
+        },
+        
+        function(err){console.log(err || 'mongo store ok!!');}
+    )
+}));
+//start using passport
+app.use(passport.initialize());
+//start using express sessions
+app.use(passport.session());
+
+//before going to any of the routes as middleware we will use a setter to
+//make the session data available in locals
+
+app.use(passport.setAuthenticatedUser);
+
+//middleware for route handling
+app.use('/' , require('./routes'));  //this will go to the index of routes
 
 app.listen(port , function(err){
     if(err){
