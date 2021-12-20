@@ -1,0 +1,29 @@
+body{
+    #page-header{
+        display: flex;
+        color: white;
+        background-color: black;
+        justify-content: space-between;
+        #header-logo{
+
+        }
+        #header-links{
+        
+                
+                a:link, a:visited {
+                    background-color:#c10d00;
+                    color: white;
+                    padding: 14px 25px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                  }
+                  
+                  a:hover, a:active {
+                    background-color: rgb(12, 8, 8);
+                  }
+            }
+        
+        
+    }
+}

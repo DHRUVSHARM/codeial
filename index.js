@@ -15,8 +15,18 @@ const passportLocal=require('./config/passport-local-strategy');
 //library to store the session data permanently so that it does not get lost
 //on refreshing
 const MongoStore=require('connect-mongo');//session is our express session 
+//middleware to use convert sass to css
+const sassMiddleware=require('node-sass-middleware');
 
 
+//middleware to convert sass to css
+app.use(sassMiddleware({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    outputStyle:'extended',
+    prefix:'/css'
+}));
 //for post requests
 app.use(express.urlencoded());
 //for cookie parsing

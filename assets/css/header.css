@@ -1,0 +1,14 @@
+body #page-header {
+  display: flex;
+  color: white;
+  background-color: black;
+  justify-content: space-between; }
+  body #page-header #header-links a:link, body #page-header #header-links a:visited {
+    background-color: #c10d00;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; }
+  body #page-header #header-links a:hover, body #page-header #header-links a:active {
+    background-color: #0c0808; }

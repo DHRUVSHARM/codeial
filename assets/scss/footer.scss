@@ -1,0 +1,33 @@
+body{
+    
+    #page-footer{
+        background-color: black;
+        height: 15vh;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+
+        #footer-logo{
+            h5{
+                font-family: monospace;
+            }
+        }
+
+        #footer-links{
+        
+                
+            a:link, a:visited {
+                background-color:#c10d00;
+                color: white;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+              }
+              
+              a:hover, a:active {
+                background-color: rgb(12, 8, 8);
+              }
+    }
+}
+}

@@ -1,0 +1,17 @@
+body #page-footer {
+  background-color: black;
+  height: 15vh;
+  color: white;
+  display: flex;
+  justify-content: space-between; }
+  body #page-footer #footer-logo h5 {
+    font-family: monospace; }
+  body #page-footer #footer-links a:link, body #page-footer #footer-links a:visited {
+    background-color: #c10d00;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; }
+  body #page-footer #footer-links a:hover, body #page-footer #footer-links a:active {
+    background-color: #0c0808; }

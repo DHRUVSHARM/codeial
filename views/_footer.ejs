@@ -1,1 +1,36 @@
-<footer>Page Footer</footer>
+<footer id="page-footer">
+    <div id="footer-logo">
+        <h5>Dhruv Insustries Pvt Ltd.</h5>
+        <h5>CONTACT: dhruv99dhruv@outlook.com</h5>
+    </div>
+    <div id="footer-links">
+        
+    
+        <% if(locals.user){ %>
+
+            
+               <a href="/users/profile"> <%= user.name %> </a>
+            
+
+            
+                <a href="/users/sign-out">SIGN OUT</a>
+            
+
+        <% }else{ %>
+
+            
+                <a href="/users/sign-in">
+                    SIGN IN
+                </a>
+            
+
+            
+                <a href="/users/sign-up">
+                    SIGN UP
+                </a>
+            
+
+        <% } %>
+
+    </div>
+</footer>
