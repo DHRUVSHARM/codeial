@@ -2,12 +2,14 @@
 body{
     margin: 0px;
     text-align: center;
+    background: black;
     
 
     #layout-main{
-        height: 100vh;
+        //height: 100vh;
         color: cornsilk;
         background:linear-gradient(to right , teal 15% , black 50%);
+        min-height: 100vh;
 
         h1{
             margin: 0px;

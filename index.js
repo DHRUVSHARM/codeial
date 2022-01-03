@@ -28,7 +28,7 @@ app.use(sassMiddleware({
     prefix:'/css'
 }));
 //for post requests
-app.use(express.urlencoded());
+app.use(express.urlencoded( {extended:true}) );
 //for cookie parsing
 app.use(cookieParser());
 

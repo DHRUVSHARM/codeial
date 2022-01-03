@@ -1,10 +1,11 @@
 body {
   margin: 0px;
-  text-align: center; }
+  text-align: center;
+  background: black; }
   body #layout-main {
-    height: 100vh;
     color: cornsilk;
-    background: linear-gradient(to right, teal 15%, black 50%); }
+    background: linear-gradient(to right, teal 15%, black 50%);
+    min-height: 100vh; }
     body #layout-main h1 {
       margin: 0px; }
 
